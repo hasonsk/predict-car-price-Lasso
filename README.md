@@ -20,17 +20,27 @@ Install the required libraries: ```pip install -r requirements.txt```
 Run the Jupyter Notebook: ```jupyter notebook model.ipynb```
 
 ## Usage
-1. Load the dataset using ```pd.read_csv()``` function.
-2. Clean the data and handle missing values.
-3. Split the dataset into training and testing sets using ```train_test_split()``` function.
-4. Create an instance of the Lasso Regression model: ```Lasso(alpha=1.0)``` and find the optimal alpha coefficient that minimizes the MAE (Mean Absolute Error).
+1. Import Libraries and Data
+Ensure you have the necessary libraries installed and load your dataset using the pd.read_csv() function.
 
+2. Clean Data and Remove Outliers
+Clean the data by handling missing values, removing outliers, and processing text data as needed.
+
+3. Split Data into Training and Testing Sets
+Use the `train_test_split()` function to split your dataset into training and testing sets for model evaluation.
+
+4. Train the Model
+Initially, you can start with Linear Regression, but if you encounter significant errors, consider using LassoCV to find the optimal alpha coefficient that minimizes the R-squared.
+
+5. Save and Run the Model on Test Data
+Save the trained model and apply it to your test dataset for predictions.
 
 
 
 ## Model
-### Lasso Regression Model
-Lasso Regression is a linear regression model that performs both feature selection and regularization. It helps in reducing the complexity of the model by shrinking the coefficient estimates towards zero. The Lasso Regression model is utilized for predicting car prices based on the dataset.
+### LassoCV Regression Model
+
+The LassoCV model combines Lasso regression with cross-validation to automatically select important features and find the best regularization parameter (alpha) for linear regression. It helps simplify models and reduce overfitting, making it a valuable tool in machine learning and data analysis.
 
 ## Deployment
 To deploy the application, run the following command:
