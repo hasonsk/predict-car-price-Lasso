@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Prediction</title>
+</head>
+<body>
+    <h1>Car Price Prediction</h1>
+    <form method="POST" action="/">
+        {% if error_message %}
+        <div class="error-message">
+            <p style="color: red;">{{ error_message }}</p>
+        </div>
+        {% endif %}
+        <label for="name">Product name:</label>
+        <div class="search-box">
+            <input type="text" id="modelInput" name="name" onkeyup="searchProduct()" required>
+            <div id="searchResults" class="search-results"></div>
+        </div><br><br>
+        
+        <label for="year">Manufacturing Year:</label>
+        <select name="year" required>
+            {% for year in range(1998, 2024) %}
+                <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="engine_cc">Engine (max 2000):</label>
+        <input type="number" step="0.1" name="engine_cc" max="2000" required> CC<br><br>
+
+        <label for="power_bhp">Power (max 2000):</label>
+        <input type="number" step="0.1" name="power_bhp" max="2000" required> bhp<br><br>
+        
+        <label for="seats">Number of Seats:</label>
+        <select name="seats" required>
+            {% for seat in range(4, 11) %}
+                <option value="{{ seat }}">{{ seat }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <button type="submit">Predict Price</button>
+    </form>
+    {% if name and model_name and predicted_price %}
+    <h2>Car: {{ name }}</h2>
+    <h2>Model: {{ model_name }}</h2>
+    <h2>Predicted Price: {{ predicted_price }}</h2>
+    {% endif %}
+    
+
+    <style>
+        .search-box {
+            position: relative;
+            display: inline-block;
+        }
+    
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+    
+        .search-results li {
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <script>
+        function searchProduct() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("modelInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("searchResults");
+            li = ul.getElementsByTagName("li");
+
+            ul.innerHTML = "";
+
+            {% for product in products %}
+                if ("{{ product }}".toUpperCase().indexOf(filter) > -1) {
+                    var liElement = document.createElement("li");
+                    liElement.textContent = "{{ product }}";
+                    liElement.onclick = function() {
+                        input.value = this.textContent;
+                        ul.innerHTML = "";
+                    };
+                    ul.appendChild(liElement);
+                }
+            {% endfor %}
+        }
+    </script>
+</body>
+</html>
