@@ -17,17 +17,17 @@
             <div id="searchResults" class="search-results"></div>
         </div><br><br>
         
-        <label for="year">Manufacturing Year:</label>
+        <label for="year">Year:</label>
         <select name="year" required>
             {% for year in range(1998, 2024) %}
                 <option value="{{ year }}">{{ year }}</option>
             {% endfor %}
         </select><br><br>
         
-        <label for="engine_cc">Engine (max 2000):</label>
-        <input type="number" step="0.1" name="engine_cc" max="2000" required> CC<br><br>
+        <label for="engine_cc">Engine:</label>
+        <input type="number" step="0.1" name="engine_cc" max="4000" required> CC<br><br>
 
-        <label for="power_bhp">Power (max 2000):</label>
+        <label for="power_bhp">Power:</label>
         <input type="number" step="0.1" name="power_bhp" max="2000" required> bhp<br><br>
         
         <label for="seats">Number of Seats:</label>
