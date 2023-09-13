@@ -1,0 +1,3 @@
+# Remove checkpoint which is not LassoCV.ckpt
+/checkpoint/*
+!/checkpoint/LassoCV.ckpt
