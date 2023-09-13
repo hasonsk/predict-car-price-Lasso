@@ -8,16 +8,22 @@ The dataset used for this project contains information about different cars, inc
 
 ## Installation and Setup
 Clone the repository: 
-```git
+```shell
 git clone https://github.com/hasonsk/predict-car-price-Lasso.git
 ```
 
 
-Move to the project directory: ```cd predict-car-price-Lasso```
+Move to the project directory: 
+```shell
+cd predict-car-price-Lasso
+```
 
 Install the required libraries: ```pip install -r requirements.txt```
 
-Run the Jupyter Notebook: ```jupyter notebook model.ipynb```
+To deploy and run app: 
+```shell
+flask run
+```
 
 ## Usage
 1. Import Libraries and Data
@@ -43,14 +49,10 @@ Save the trained model and apply it to your test dataset for predictions.
 The LassoCV model combines Lasso regression with cross-validation to automatically select important features and find the best regularization parameter (alpha) for linear regression. It helps simplify models and reduce overfitting, making it a valuable tool in machine learning and data analysis.
 
 ## Deployment
-To deploy the application, run the following command:
-```bash
-python3 app.py
-```
 
-Here is a sample image demonstrating the usage of the API. Feel free to try it out and explore, you might find it excited! 
+### Here is a sample image demonstrating the usage of the API. Feel free to try it out and explore, you might find it excited! 
 ![Alt text](app_web.png)
 ![Alt text](image-result.png)
 
 
-😄 I am very grateful for receiving your feedback and contributions!!!
+#### 😄 I am very grateful for receiving your feedback and contributions!!!
